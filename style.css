@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
+
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: white;
+  background-color: rgb(45, 152, 234);
+  position: relative;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1rem;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  overflow-x: auto;
+}
+
+.searchInput {
+  padding: 8px;
+  font-size: 0.8rem;
+  border: none;
+  border-radius: 8px;
+  position:absolute;
+  top: 10px;
+  right: 14px;
+  width: 200px;
+  background-color: rgb(24, 77, 146);
+  color: rgb(168, 187, 211);
+}
+
+.currentContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 80px;
+}
+
+.currentTemp {
+  display: flex;
+  gap: 18px;
+}
+
+.scrollableTable {
+  max-height: 300px; 
+  overflow-x: auto; 
+}
+.hourlyTable {
+  background-color: rgb(45, 109, 177);
+  height: 200px;
+  border: none;
+  border-radius: 18px;
+  padding: 18px;
+  margin: 0 auto;
+  text-align: center;
+  width: 96%; 
+  white-space: nowrap;
+}
+
+.hourlyTable td {
+  padding: 12px;
+  min-width: 110px; 
+  
+}
+
+.hourlyTable img {
+  width: 80px;
+}
+
+
+caption {
+  background-color: rgb(45, 109, 177);
+  border: 1px solid white;
+  border-radius: 12px;
+  text-align:justify;
+  padding:8px;
+  margin-bottom: 8px;
+  width:fit-content;
+}
+
+.Details {
+  display: flex;
+  flex-direction: column;
+  height: 250px;
+  width: 325px;
+  background-color: rgb(45, 109, 177);
+  border: none;
+  border-radius: 18px;
+  padding: 18px;
+  justify-content: center;
+}
+
+.Details h3 {
+  font-size: 0.8rem;
+}
+
+.Details h2 {
+  font-size: 2rem;
+}
+
+.sunriseDetails,
+.sunsetDetails {
+  justify-content: space-between;
+}
+
+.windDetails,
+.PrecipitationDetails,
+.perceptionProb,
+.humidityDetails,
+.feelsLikeDetails,
+.visibilityDetails,
+.pressureDetails {
+  justify-content: space-between;
+}
+
+.sunriseInfo,
+.sunsetInfo,
+.windInfo,
+.PrecipitationInfo,
+.rainInfo,
+.humidityInfo,
+.feelsInfo,
+.visibilityInfo,
+.pressureInfo {
+  text-align: center;
+}
+
+
+.windDirDiv,
+.windSpdDiv {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.windInfo img {
+  height: 80px;
+  margin-bottom: 10px;
+}
+
+.PrecipitationInfo img {
+  height: 120px;
+  width: 100px;
+}
+
+.fiveDayTable {
+  background-color: rgb(45, 109, 177);
+  width: 325px;
+  border: none;
+  border-radius: 18px;
+  padding: 20px;
+  gap: 20px;
+}
+
+.fiveDayTable td {
+  padding-block: 20px;
+}
+
+.fiveDayTable td img {
+  height: 60px;
+  width: 50px;
+}
+
+.gridLayout {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 18px;
+  background-color: transparent;
+  border: none;
+  border-radius: 18px;
+  margin: 20px;
+}
+
+.gridLayout div {
+  background-color: rgb(45, 109, 177);
+  /* lighter shade */
+}
+
+.gridLayout img,
+.fiveDayTable img {
+  width: 100px;
+}
+
+.gridSpan {
+  grid-row: span 2;
+}

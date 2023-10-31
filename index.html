@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  
+
+  <!-- Main container which includes current container and weather container -->
+  <div class="container">
+    <!-- Search Input -->
+    <input class="searchInput" type="search" name="search" id="searchInput" placeholder="New York">
+
+    <div class="currentContainer">
+      <h2 id="cityName">Bengaluru
+</h2>
+      <h1 id="cityTemp">30.9°C</h1>
+      <h3 id="descriptionWeather">Overcast Clouds</h3>
+      <div class="currentTemp">
+        <h3 id="highTemp">H:31.71°</h3>
+        <h3 id="lowTemp">L:30.9°</h3>
+      </div>
+    </div>
+
+    <div class="weatherContainer">
+      <div class="scrollableTable">
+        <table class="hourlyTable">
+          <caption>Hourly Forecast</caption>
+          <tr>
+            <td>Now</td>
+            <td>1AM</td>
+            <td>2AM</td>
+            <td>3AM</td>
+            <td>4AM</td>
+            <td>5AM</td>
+            <td>6AM</td>
+          </tr>
+          <tr>
+            <td>
+              <img src="/Assets/images/clouds.png" alt="Clouds">
+            </td>
+            <td>
+              <img src="/Assets/images/clouds.png" alt="Clouds">
+            </td>
+            <td>
+              <img src="/Assets/images/clouds.png" alt="Clouds">
+            </td>
+            <td>
+              <img src="/Assets/images/clouds.png" alt="Clouds">
+            </td>
+            <td>
+              <img src="/Assets/images/clouds.png" alt="Clouds">
+            </td>
+            <td>
+              <img src="/Assets/images/clouds.png" alt="Clouds">
+            </td>
+            <td>
+              <img src="/Assets/images/clouds.png" alt="Clouds">
+            </td>
+          </tr>
+          <tr>
+            <td>26°C</td>
+            <td>25°C</td>
+            <td>24.5°C</td>
+            <td>24°C</td>
+            <td>23.5°C</td>
+            <td>23°C</td>
+            <td>22°C</td>
+          </tr>
+        </table>
+      </div>
+      
+      <div class="gridLayout">
+
+        <div class="fiveDayTable gridSpan">
+          <table>
+            <caption>5 Day Forecast</caption>
+            <tr>
+              <td>Today</td>
+              <td><img src="/Assets/images/clouds.png" alt="Clouds"></td>
+              <td>20.35°</td>
+              <td>43.12°</td>
+            </tr>
+            <tr>
+              <td>Friday</td>
+              <td><img src="/Assets/images/clouds.png" alt="Clouds"></td>
+              <td>22.57°</td>
+              <td>37.07°</td>
+            </tr>
+            <tr>
+              <td>Saturday</td>
+              <td><img src="/Assets/images/clouds.png" alt="Clouds"></td>
+              <td>25.20°</td>
+              <td>39.27°</td>
+            </tr>
+            <tr>
+              <td>Sunday</td>
+              <td><img src="/Assets/images/clouds.png" alt="Clouds"></td>
+              <td>24.05°</td>
+              <td>36.19°</td>
+            </tr>
+            <tr>
+              <td>Monday</td>
+              <td><img src="/Assets/images/clouds.png" alt="Clouds"></td>
+              <td>28.07°</td>
+              <td>42.11°</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="sunriseDetails Details">
+          <div class="sunriseTitle">
+            <h3>SunRise : </h3>
+          </div>
+          <div class="sunriseInfo">
+            <img src="Assets/sunrise.png" alt="">
+            <h2 id="sunRiseTime">6:13 AM</h2>
+          </div>
+        </div>
+
+        <div class="sunsetDetails Details">
+          <div class="sunsetTitle">
+            <h3>SunSet : </h3>
+          </div>
+          <div class="sunsetInfo">
+            <img src="Assets/sunset.png" alt="">
+            <h2 id="sunSetTime">6:04 PM</h2>
+          </div>
+        </div>
+
+        <div class="windDetails Details">
+          <div class="windTitle">
+            <h3>Wind :</h3>
+          </div>
+          <div class="windInfo">
+            <img src="Assets/wind.png" alt="">
+            <div class="windDiv">
+              <div class="windSpdDiv">
+                <h3>Speed :</h3>
+                <h2 id="windSpeed">2.93 m/s</h2>
+              </div>
+              <div class="windDirDiv">
+                <h3>Direction :</h3>
+                <h2 id="windDirection">94°</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="PrecipitationDetails Details">
+          <div class="PrecipitationTitle">
+            <h3>Precipitation :</h3>
+          </div>
+          <div class="PrecipitationInfo">
+            <img src="Assets/Precipitation.png" alt="">
+            <h2 id="precipitation">0 MM</h2>
+            <h3>in last 3h</h3>
+          </div>
+        </div>
+
+        <div class="perceptionProb Details">
+          <div class="rainTitle">
+            <h3>Rain Probability :</h3>
+          </div>
+          <div class="rainInfo">
+            <img src="Assets/rain.png" alt="">
+            <h2 id="rainProb">10%</h2>
+          </div>
+        </div>
+
+        <div class="humidityDetails Details">
+          <div class="humidityTitle">
+            <h3>Humidity :</h3>
+          </div>
+          <div class="humidityInfo">
+            <img src="Assets/humidity.png" alt="">
+            <h2 id="humidity">46%</h2>
+          </div>
+        </div>
+
+        <div class="feelsLikeDetails Details">
+          <div class="feelsTitle">
+            <h3>Feels Like :</h3>
+          </div>
+          <div class="feelsInfo">
+            <img src="Assets/feelsLike.png" alt="">
+            <h2 id="feelsLike">31.72°</h2>
+          </div>
+        </div>
+
+        <div class="visibilityDetails Details">
+          <div class="visibilityTitle">
+            <h3>Visibility :</h3>
+          </div>
+          <div class="visibilityInfo">
+            <img src="Assets/visibility.png" alt="">
+            <h2 id="visibility">10km</h2>
+          </div>
+        </div>
+
+        <div class="pressureDetails Details">
+          <div class="pressureTitle">
+            <h3>Presssure :</h3>
+          </div>
+          <div class="pressureInfo">
+            <img src="Assets/pressure.png" alt="">
+            <h2 id="pressure">1011 hPa</h2>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+
+  <script src="script.js"></script>
+</body>
+
+</html>
