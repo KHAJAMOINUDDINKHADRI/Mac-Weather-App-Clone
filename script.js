@@ -1,5 +1,6 @@
 const searchInput = document.getElementById('searchInput');
 const apiKey = 'feaddb058e73880988c3da1a8c0a7dc7';
+const kevlinToCelsius = tempKel => tempKel - 273.15;
 
 searchInput.addEventListener('keypress', function(e) {
   if (e.key === 'Enter') {
@@ -10,7 +11,7 @@ searchInput.addEventListener('keypress', function(e) {
 
 
 async function fetchWeatherData(city) {
-  const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+  const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`;
 
   try {
     const response = await fetch(apiUrl);
@@ -21,51 +22,76 @@ async function fetchWeatherData(city) {
   }
 }
 
+// returns string reprenting the day from interger
+const intToDay = dayAsInt => {
+  let day = "Weather";
+  switch (dayAsInt) {
+    case 0:
+      day = "Sunday";
+      break;
+    case 1:
+      day = "Monday";
+      break;
+    case 2:
+      day = "Tuesday";
+      break;
+    case 3:
+      day = "Wednesday";
+      break;
+    case 4:
+      day = "Thursday";
+      break;
+    case 5:
+      day = "Friday";
+      break;
+    case 6:
+      day = "Saturday";
+  }
+  return day;
+}
 
 function updateWeatherInfo(data) {
-  console.log(data)
 
   const currentWeather = data.list[0];
   document.getElementById('cityName').textContent = data.city.name;
-  document.getElementById('cityTemp').textContent = `${currentWeather.main.temp}°C`;
+  document.getElementById('cityTemp').textContent = `${Math.round(kevlinToCelsius(currentWeather.main.temp))}°C`;
   document.getElementById('descriptionWeather').textContent = currentWeather.weather[0].description;
-  document.getElementById('highTemp').textContent = `H: ${currentWeather.main.temp_max}°`;
-  document.getElementById('lowTemp').textContent = `L: ${currentWeather.main.temp_min}°`;
+  document.getElementById('lowTemp').textContent = `L: ${Math.round(kevlinToCelsius(currentWeather.main.temp_min))}°C`;
+  document.getElementById('highTemp').textContent = `H: ${Math.round(kevlinToCelsius(currentWeather.main.temp_max))}°C`;
 
+  //-------------- Hourly ForeCast --------------
 
-  //-------------- Hourly ForeCast
-
-  // Populate hourly weather data (for the next 6 hours, considering 3-hour steps)
-  const hourlyData = data.list.slice(0, 8); // Get the next 6 hours data
+  const hourlyData = data.list.slice(0, 9); 
   const hourlyTable = document.querySelector('.hourlyTable tbody');
-  hourlyTable.innerHTML = ''; // Clear existing data
+  hourlyTable.innerHTML = ''; 
 
   const row = document.createElement('tr');
   hourlyData.forEach(hour => {
     const time = new Date(hour.dt * 1000).toLocaleTimeString([], { hour: 'numeric', hour12: true });
     const iconUrl = `https://openweathermap.org/img/w/${hour.weather[0].icon}.png`;
     const cell = document.createElement('td');
-    cell.innerHTML = `${time}<br><img src="${iconUrl}" alt="${hour.weather[0].description}"><br>${hour.main.temp}°C`;
+    cell.innerHTML = `${time}<br><img src="${iconUrl}" alt="${hour.weather[0].description}"><br>${Math.round(kevlinToCelsius(hour.main.temp))}°C`;
     row.appendChild(cell);
   });
   hourlyTable.appendChild(row);
 
-  //-------------- 5 Day ForeCast
+  //-------------- 5 Day ForeCast ---------------
 
-  // Populate 5-day forecast data (for the next 5 days, considering 3-hour steps)
-  const fiveDayData = data.list.slice(9, 38); // Get the next 5 days data (5 days * 8 forecasts per day = 40 - 2 (for the first day))
+ // Get the next 5 days data (5 days * 8 forecasts per day = 40 )
   const fiveDayTable = document.querySelector('.fiveDayTable tbody');
   fiveDayTable.innerHTML = ''; // Clear existing data
 
-  for (let i = 0; i < fiveDayData.length; i += 8) {
-    const day = fiveDayData[i];
+  for (let i = 0; i < 40; i += 8) {
+    const day = data.list[i];
+    const date = new Date(day.dt * 1000);
+    const dayName = intToDay(date.getDay());
     const iconUrl = `https://openweathermap.org/img/w/${day.weather[0].icon}.png`;
     const row = document.createElement('tr');
-    const dayOfWeek = new Date(day.dt * 1000).toLocaleDateString('en-US', { weekday: 'long' });
-    row.innerHTML = `<td>${dayOfWeek}</td>
-                       <td><img src="${iconUrl}" alt="${day.weather[0].description}"></td>
-                       <td>L:${day.main.temp_min}°</td>
-                       <td>| H:${day.main.temp_max}°</td>`;
+    row.innerHTML = `<td>${dayName}</td>
+    <td><img src="${iconUrl}" alt="${day.weather[0].description}"></td>
+    <td>L:${Math.round(kevlinToCelsius(day.main.temp_min))}°C</td>
+    <td>|</td>
+    <td>H:${Math.round(kevlinToCelsius(day.main.temp_max))}°C</td>`
     fiveDayTable.appendChild(row);
   }
 
@@ -78,14 +104,14 @@ function updateWeatherInfo(data) {
   document.getElementById('precipitation').textContent = `${currentWeather.rain ? currentWeather.rain['3h'] : 0} MM`;
   document.getElementById('rainProb').textContent = `${(currentWeather.pop * 100).toFixed(1)}%`;
   document.getElementById('humidity').textContent = `${currentWeather.main.humidity}%`;
-  document.getElementById('feelsLike').textContent = `${currentWeather.main.feels_like}°`;
+  document.getElementById('feelsLike').textContent = `${Math.round(kevlinToCelsius(currentWeather.main.feels_like))}°C`;
   document.getElementById('visibility').textContent = `${currentWeather.visibility / 1000} km`;
   document.getElementById('pressure').textContent = `${currentWeather.main.pressure} hPa`;
 
 }
 
 async function fetchWeatherDataByCoordinates(latitude, longitude) {
-  const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+  const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
 
   try {
     const response = await fetch(apiUrl);
@@ -121,5 +147,6 @@ function getCurrentLocation() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  getCurrentLocation()
+  getCurrentLocation();
+  searchInput.focus();
 });
