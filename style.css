@@ -10,7 +10,9 @@
 body {
   font-family: 'Open Sans', sans-serif;
   color: white;
-  background-color: rgb(45, 152, 234);
+  background: linear-gradient(#00A9FF, #32cff3);
+  max-width: 1200px;
+  margin: 0 auto;
   position: relative;
   padding: 20px;
 }
@@ -42,6 +44,8 @@ a {
   overflow-x: auto;
 }
 
+/* Search Input */
+
 .searchInput {
   padding: 8px;
   font-size: 0.8rem;
@@ -51,15 +55,32 @@ a {
   top: 10px;
   right: 14px;
   width: 200px;
-  background-color: rgb(24, 77, 146);
-  color: rgb(168, 187, 211);
+  color: white;
+  background-color: #4477CE;
 }
+
+.searchInput::placeholder {
+  color: black;
+}
+
+.searchInput:focus::placeholder {
+  color: white;
+}
+
+/* Current Info */
 
 .currentContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 80px;
+  padding-top: 120px;
+  padding-bottom: 60px;
+}
+
+#descriptionWeather,
+.hourlyTable td,
+.Details {
+  text-transform: capitalize;
 }
 
 .currentTemp {
@@ -67,25 +88,28 @@ a {
   gap: 18px;
 }
 
+/* Hourly Table*/
+
 .scrollableTable {
-  max-height: 300px; 
+  max-height: 320px; 
   overflow-x: auto; 
 }
 .hourlyTable {
-  background-color: rgb(45, 109, 177);
-  height: 200px;
+  background-color:  #4477CE;
+  backdrop-filter: blur(8px);
+  height: 250px;
   border: none;
   border-radius: 18px;
+  box-shadow: 2.8px 2.8px 5.2px #002e7a;
   padding: 18px;
-  margin: 0 auto;
   text-align: center;
-  width: 96%; 
+  width: 1060px; 
   white-space: nowrap;
 }
 
 .hourlyTable td {
   padding: 12px;
-  min-width: 110px; 
+  min-width: 120px; 
   
 }
 
@@ -95,7 +119,7 @@ a {
 
 
 caption {
-  background-color: rgb(45, 109, 177);
+  background-color: #4477CE;
   border: 1px solid white;
   border-radius: 12px;
   text-align:justify;
@@ -104,12 +128,16 @@ caption {
   width:fit-content;
 }
 
+/* Details Section */
+
 .Details {
   display: flex;
   flex-direction: column;
-  height: 250px;
+  height: 300px;
   width: 325px;
-  background-color: rgb(45, 109, 177);
+  background-color: #4477CE;
+  backdrop-filter: blur(8px);
+  box-shadow: 2.8px 2.8px 5.2px #002e7a;
   border: none;
   border-radius: 18px;
   padding: 18px;
@@ -126,7 +154,7 @@ caption {
 
 .sunriseDetails,
 .sunsetDetails {
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .windDetails,
@@ -136,7 +164,7 @@ caption {
 .feelsLikeDetails,
 .visibilityDetails,
 .pressureDetails {
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .sunriseInfo,
@@ -156,6 +184,7 @@ caption {
 .windSpdDiv {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 10px;
 }
 
@@ -169,11 +198,15 @@ caption {
   width: 100px;
 }
 
+/* Five Day Table */
+
 .fiveDayTable {
-  background-color: rgb(45, 109, 177);
+  background-color: #4477CE;
+  backdrop-filter: blur(8px);
   width: 325px;
   border: none;
   border-radius: 18px;
+  box-shadow: 2.8px 2.8px 5.2px #002e7a;
   padding: 20px;
   gap: 20px;
 }
@@ -187,9 +220,11 @@ caption {
   width: 50px;
 }
 
+/* Grid Layout */
+
 .gridLayout {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 2fr));
   gap: 18px;
   background-color: transparent;
   border: none;
@@ -198,8 +233,7 @@ caption {
 }
 
 .gridLayout div {
-  background-color: rgb(45, 109, 177);
-  /* lighter shade */
+  background-color:  #4477CE;
 }
 
 .gridLayout img,
@@ -209,4 +243,162 @@ caption {
 
 .gridSpan {
   grid-row: span 2;
+}
+
+
+/* Media Queries */
+
+@media screen and (max-width: 1120px) {
+  .container {
+    max-width: 1000px;
+  }
+
+  .scrollableTable {
+    max-height: 290px;
+  }
+
+  .Details {
+    height: 300px;
+    width: 430px;
+  }
+
+  .fiveDayTable {
+    width: 430px;
+  }
+
+  .fiveDayTable td {
+    padding-right: 20px;
+  }
+
+  .gridLayout {
+    grid-template-columns: repeat(auto-fill, minmax(430px, 1fr));
+    justify-content: space-around;
+  }
+
+
+}
+
+@media screen and (max-width: 1000px) {
+  .container {
+    max-width: 880px;
+  }
+
+  .scrollableTable {
+    max-height: 300px;
+  }
+
+  .Details {
+    height: 300px;
+    width: 320px;
+  }
+
+  .fiveDayTable {
+    width: 320px;
+  }
+
+  .fiveDayTable td {
+    padding-right: 0px;
+  }
+
+  .gridLayout {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    justify-content: space-around;
+  }
+
+}
+
+@media screen and (max-width: 780px) {
+  .container {
+    max-width: 550px;
+  }
+
+  .scrollableTable {
+    max-height: 300px;
+  }
+
+  .Details {
+    height: 300px;
+    width: 400px;
+  }
+
+  .fiveDayTable {
+    width: 400px;
+  }
+
+  .fiveDayTable td {
+    padding-right: 20px;
+  }
+
+  .gridLayout {
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 524px) {
+  .searchInput {
+    width: 92%;
+  }
+
+  .scrollableTable {
+    max-height: 300px;
+  }
+
+  .Details {
+    height: 300px;
+    width: 270px;
+  }
+
+  .fiveDayTable {
+    width: 270px;
+    padding: 12px;
+    margin-left: 0px;
+  }
+
+  .fiveDayTable td {
+    padding-right: 0px;
+    font-size: 0.8rem;
+  }
+
+  .gridLayout {
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    margin-left: 0px;
+  }
+}
+
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Apply animations to specific elements */
+.currentContainer {
+  animation: fadeIn 1s ease-in-out;
+}
+
+.currentTemp,
+.hourlyTable,
+.fiveDayTable,
+.Details,
+.gridLayout {
+  animation: slideIn 1s ease-in-out;
 }
