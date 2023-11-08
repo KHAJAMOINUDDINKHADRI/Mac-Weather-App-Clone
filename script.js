@@ -70,7 +70,7 @@ function updateWeatherInfo(data) {
     const time = new Date(hour.dt * 1000).toLocaleTimeString([], { hour: 'numeric', hour12: true });
     const iconUrl = `https://openweathermap.org/img/w/${hour.weather[0].icon}.png`;
     const cell = document.createElement('td');
-    cell.innerHTML = `${time}<br><img src="${iconUrl}" alt="${hour.weather[0].description}"><br>${Math.round(kevlinToCelsius(hour.main.temp))}°C`;
+    cell.innerHTML = `${time}<br><br><img src="${iconUrl}" alt="${hour.weather[0].description}"><br><br>${Math.round(kevlinToCelsius(hour.main.temp))}°C`;
     row.appendChild(cell);
   });
   hourlyTable.appendChild(row);
