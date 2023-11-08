@@ -204,6 +204,7 @@ caption {
 }
 
 .fiveDayTable td {
+  padding-right: 10px;
   padding-block: 20px;
 }
 
@@ -257,7 +258,7 @@ caption {
   }
 
   .fiveDayTable td {
-    padding-right: 20px;
+    padding-left: 16px;
   }
 
   .gridLayout {
@@ -288,6 +289,7 @@ caption {
 
   .fiveDayTable td {
     padding-right: 0px;
+    padding-left: 6px;
   }
 
   .gridLayout {
@@ -347,6 +349,7 @@ caption {
 
   .fiveDayTable td {
     padding-right: 0px;
+    padding-left: 6px;
     font-size: 0.8rem;
   }
 
