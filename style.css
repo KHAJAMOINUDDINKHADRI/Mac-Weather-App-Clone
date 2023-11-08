@@ -12,9 +12,9 @@ body {
   color: white;
   background: linear-gradient(#00A9FF, #32cff3);
   max-width: 1200px;
-  margin: 0 auto;
   position: relative;
   padding: 20px;
+  margin: 0 auto;
 }
 
 h1 {
@@ -44,14 +44,12 @@ a {
   overflow-x: auto;
 }
 
-/* Search Input */
-
 .searchInput {
   padding: 8px;
   font-size: 0.8rem;
   border: none;
   border-radius: 8px;
-  position:absolute;
+  position: absolute;
   top: 10px;
   right: 14px;
   width: 200px;
@@ -66,8 +64,6 @@ a {
 .searchInput:focus::placeholder {
   color: white;
 }
-
-/* Current Info */
 
 .currentContainer {
   display: flex;
@@ -88,30 +84,29 @@ a {
   gap: 18px;
 }
 
-/* Hourly Table*/
-
 .scrollableTable {
-  max-height: 320px; 
-  overflow-x: auto; 
-}
-.hourlyTable {
-  background-color:  #4477CE;
-  backdrop-filter: blur(8px);
-  height: 250px;
+  max-height: 320px;
+  overflow-x: auto;
+  overflow-y:hidden;
+  padding: 18px;
+  background-color: #4477CE;
   border: none;
   border-radius: 18px;
   box-shadow: 2.8px 2.8px 5.2px #002e7a;
-  padding: 18px;
+}
+
+.hourlyTable {
+  background-color: #4477CE;
+  backdrop-filter: blur(8px);
+  height: 250px;
   text-align: center;
-  width: 1060px; 
+  width: 1060px;
   white-space: nowrap;
 }
 
 .hourlyTable td {
-  padding-top: 12px;
-  padding-inline: 12px;
-  padding-bottom: 24px;
-  min-width: 120px;
+  padding: 10px;
+  min-width: 100px;
 }
 
 .hourlyTable img {
@@ -122,14 +117,12 @@ a {
 caption {
   background-color: #4477CE;
   border: 1px solid white;
+  box-shadow: 2.8px 2.8px 5.2px #002e7a;
   border-radius: 12px;
-  text-align:justify;
-  padding:8px;
-  margin-bottom: 8px;
-  width:fit-content;
+  text-align: justify;
+  padding: 8px;
+  width: fit-content;
 }
-
-/* Details Section */
 
 .Details {
   display: flex;
@@ -199,8 +192,6 @@ caption {
   width: 100px;
 }
 
-/* Five Day Table */
-
 .fiveDayTable {
   background-color: #4477CE;
   backdrop-filter: blur(8px);
@@ -221,8 +212,6 @@ caption {
   width: 50px;
 }
 
-/* Grid Layout */
-
 .gridLayout {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 2fr));
@@ -234,7 +223,7 @@ caption {
 }
 
 .gridLayout div {
-  background-color:  #4477CE;
+  background-color: #4477CE;
 }
 
 .gridLayout img,
