@@ -110,7 +110,7 @@ a {
 .hourlyTable td {
   padding: 12px;
   min-width: 120px; 
-  
+  justify-content: space-between;
 }
 
 .hourlyTable img {
