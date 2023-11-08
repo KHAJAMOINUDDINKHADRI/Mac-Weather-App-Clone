@@ -108,9 +108,10 @@ a {
 }
 
 .hourlyTable td {
-  padding: 12px;
-  min-width: 120px; 
-  justify-content: space-between;
+  padding-top: 12px;
+  padding-inline: 12px;
+  padding-bottom: 24px;
+  min-width: 120px;
 }
 
 .hourlyTable img {
