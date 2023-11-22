@@ -1,20 +1,31 @@
+/* Importing fonts from Google */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
 
 
+/* Basic changes for the website */
 * {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
 }
 
+:root {
+  --details-color : 
+    rgba(0,169,255,0.6);
+    /* rgba(68, 119, 206, 0.6); */
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
   color: white;
-  background: linear-gradient(#00A9FF, #32cff3);
   max-width: 1200px;
   position: relative;
   padding: 20px;
   margin: 0 auto;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  /* background: linear-gradient(#00A9FF, #32cff3); */
 }
 
 h1 {
@@ -41,20 +52,23 @@ a {
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 20px;
-  overflow-x: auto;
 }
 
+/* Search input for seraching different cities weather */
 .searchInput {
   padding: 8px;
   font-size: 0.8rem;
   border: none;
   border-radius: 8px;
   position: absolute;
-  top: 10px;
-  right: 14px;
-  width: 200px;
+  top: 20px;
+  right: 20px;
+  width: 250px;
   color: white;
-  background-color: #4477CE;
+  background-color: var(--details-color);
+  /* #4477CE */
+  backdrop-filter: blur(7px);
+  margin-bottom: 20px;
 }
 
 .searchInput::placeholder {
@@ -65,12 +79,23 @@ a {
   color: white;
 }
 
+/* Current container which shows basic data like city,temp,desc,high,low */
 .currentContainer {
   display: flex;
   flex-direction: column;
+  background-color: var(--details-color);
+  backdrop-filter: blur(7px);
+  border-radius: 10px;
+  box-shadow: 2.8px 2.8px 5.2px #002e7a;
+  max-width: fit-content;
   align-items: center;
-  padding-top: 120px;
-  padding-bottom: 60px;
+  justify-content: center;
+  padding-block: 40px;
+  padding-inline: 80px;
+  margin: 0 auto;
+  margin-top: 80px;
+  margin-bottom: 40px;
+  gap: 4px;
 }
 
 #descriptionWeather,
@@ -81,23 +106,23 @@ a {
 
 .currentTemp {
   display: flex;
-  gap: 18px;
+  gap: 24px;
 }
 
+/* Hourly forecast is a 3-hour step forecast for 24 hours and it is scrollable horizontally and responsive design */
 .scrollableTable {
   max-height: 320px;
   overflow-x: auto;
-  overflow-y:hidden;
+  overflow-y: hidden;
   padding: 18px;
-  background-color: #4477CE;
+  background-color: var(--details-color);
+  backdrop-filter: blur(7px);
   border: none;
   border-radius: 18px;
   box-shadow: 2.8px 2.8px 5.2px #002e7a;
 }
 
 .hourlyTable {
-  background-color: #4477CE;
-  backdrop-filter: blur(8px);
   height: 250px;
   text-align: center;
   width: 1060px;
@@ -110,12 +135,13 @@ a {
 }
 
 .hourlyTable img {
-  width: 80px;
+  width: 100px;
 }
 
-
 caption {
-  background-color: #4477CE;
+  background-color: var(--details-color);
+  /* #4477CE */
+  backdrop-filter: blur(7px);
   border: 1px solid white;
   box-shadow: 2.8px 2.8px 5.2px #002e7a;
   border-radius: 12px;
@@ -124,13 +150,15 @@ caption {
   width: fit-content;
 }
 
+/* Details are other weather data, which is important and it is displayed using grid layout with other Details and five day forecast */
 .Details {
   display: flex;
   flex-direction: column;
   height: 300px;
   width: 325px;
-  background-color: #4477CE;
-  backdrop-filter: blur(8px);
+  background-color: var(--details-color);
+  /* #4477CE */
+  backdrop-filter: blur(7px);
   box-shadow: 2.8px 2.8px 5.2px #002e7a;
   border: none;
   border-radius: 18px;
@@ -173,7 +201,6 @@ caption {
   text-align: center;
 }
 
-
 .windDirDiv,
 .windSpdDiv {
   display: flex;
@@ -182,49 +209,34 @@ caption {
   gap: 10px;
 }
 
-.windInfo img {
-  height: 80px;
-  margin-bottom: 10px;
-}
-
-.PrecipitationInfo img {
-  height: 120px;
-  width: 100px;
-}
-
+/* Five day forecast is a 5 days weather data shown in vertical form, which contain day,weatherIcon,low,high for 5 days including present day */
 .fiveDayTable {
-  background-color: #4477CE;
-  backdrop-filter: blur(8px);
+  background-color: var(--details-color);/* #4477CE */
+  backdrop-filter: blur(7px);
   width: 325px;
   border: none;
   border-radius: 18px;
   box-shadow: 2.8px 2.8px 5.2px #002e7a;
   padding: 20px;
+  display: flex;
+  justify-content: space-around;
   gap: 20px;
 }
 
-.fiveDayTable td {
-  padding-right: 10px;
-  padding-block: 20px;
-}
-
 .fiveDayTable td img {
-  height: 60px;
-  width: 50px;
+  width: 100px;
 }
 
+/* Grid layout used efficiently to display details and five day forecast, with responsive design */
 .gridLayout {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 2fr));
+  grid-template-columns: repeat(auto-fill, minmax(325px, 1fr));
   gap: 18px;
   background-color: transparent;
   border: none;
   border-radius: 18px;
   margin: 20px;
-}
-
-.gridLayout div {
-  background-color: #4477CE;
+  justify-content: space-around;
 }
 
 .gridLayout img,
@@ -236,9 +248,27 @@ caption {
   grid-row: span 2;
 }
 
+/* Footer section to show the creator details and the resources used */
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  align-items: center;
+  max-width: 1200px;
+  padding: 10px 0px;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin-top: 20px;
+  border-radius: 4px;
+}
 
-/* Media Queries */
+.footer-section a {
+  color: rgb(0, 120, 255);
+}
 
+/* Media Queries for a responsive design for all screen sizes */
 @media screen and (max-width: 1120px) {
   .container {
     max-width: 1000px;
@@ -253,6 +283,10 @@ caption {
     width: 430px;
   }
 
+  .Details h3 {
+    font-size: 1rem;
+  }
+
   .fiveDayTable {
     width: 430px;
   }
@@ -264,9 +298,8 @@ caption {
   .gridLayout {
     grid-template-columns: repeat(auto-fill, minmax(430px, 1fr));
     justify-content: space-around;
+    align-items: center;
   }
-
-
 }
 
 @media screen and (max-width: 1000px) {
@@ -280,41 +313,45 @@ caption {
 
   .Details {
     height: 300px;
-    width: 320px;
+    width: 350px;
+  }
+
+  .Details h3 {
+    font-size: 1rem;
   }
 
   .fiveDayTable {
-    width: 320px;
+    width: 350px;
   }
 
   .fiveDayTable td {
     padding-right: 0px;
-    padding-left: 6px;
+    padding-left: 2px;
   }
 
   .gridLayout {
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     justify-content: space-around;
+    align-items: center;
   }
-
 }
 
 @media screen and (max-width: 780px) {
-  .container {
-    max-width: 550px;
-  }
-
   .scrollableTable {
     max-height: 300px;
   }
 
   .Details {
     height: 300px;
-    width: 400px;
+    width: 100%;
+  }
+
+  .Details h3 {
+    font-size: 1rem;
   }
 
   .fiveDayTable {
-    width: 400px;
+    width: 100%;
   }
 
   .fiveDayTable td {
@@ -322,45 +359,173 @@ caption {
   }
 
   .gridLayout {
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-    width: 100%;
+    grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+    justify-content: space-around;
+    align-items: center;
   }
 }
 
 @media screen and (max-width: 524px) {
   .searchInput {
-    width: 92%;
+    width: 100%;
+    position: relative;
+    margin-left: 12px;
   }
 
   .scrollableTable {
     max-height: 300px;
+    width: 100%;
   }
 
   .Details {
     height: 300px;
-    width: 270px;
+    width: 100%;
+  }
+
+  .Details h3 {
+    font-size: 1rem;
   }
 
   .fiveDayTable {
-    width: 270px;
+    width: 100%;
     padding: 12px;
     margin-left: 0px;
   }
 
   .fiveDayTable td {
     padding-right: 0px;
-    padding-left: 6px;
-    font-size: 0.8rem;
+    padding-left: 4px;
+    font-size: 1rem;
   }
 
   .gridLayout {
-    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .searchInput {
+    width: 100%;
+    position: relative;
+    margin-left: 12px;
+  }
+
+  .scrollableTable {
+    max-height: 300px;
+    width: 100%;
+  }
+
+  .hourlyTable td {
+    padding: 4px;
+    min-width:100px;
+    font-size: 0.9rem;
+  }
+
+  .hourlyTable img {
+    width: 70px;
+  }
+
+  .Details {
+    height: 300px;
+    width: 100%;
+  }
+
+  .Details h3 {
+    font-size: 1rem;
+  }
+
+  .fiveDayTable {
+    width: 100%;
+    padding: 12px;
     margin-left: 0px;
+  }
+
+  .fiveDayTable td {
+    padding-right: 0px;
+    padding-left: 4px;
+    font-size: 0.9rem;
+  }
+
+  .fiveDayTable td img {
+    width: 70px;
+  }
+
+  .gridLayout {
+    grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .searchInput {
+    width: 100%;
+    position: relative;
+    margin-right: 12px;
+  }
+
+  .currentContainer {
+    max-width: 250px;
+    padding-block: 20px;
+    padding-inline: 40px;
+  }
+
+  .scrollableTable {
+    max-height: 300px;
+    width: 100%;
+  }
+
+  .hourlyTable td {
+    padding: 4px;
+    min-width:100px;
+    font-size: 0.75rem;
+  }
+
+  .hourlyTable img {
+    width: 70px;
+  }
+
+  .Details {
+    height: 300px;
+    width: 100%;
+  }
+
+  .Details h3 {
+    font-size: 1rem;
+  }
+
+  .fiveDayTable {
+    width: 100%;
+    padding: 12px;
+    margin-left: 0px;
+    overflow-x: auto;
+  }
+
+  .fiveDayTable td {
+    padding-right: 0px;
+    padding-left: 0px;
+    font-size: 0.75rem;
+  }
+
+  .fiveDayTable td img {
+    width: 70px;
+  }
+
+  .gridLayout {
+    grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .footer-section {
+    font-size: 0.7rem;
   }
 }
 
 
-/* Animations */
+/* Keyframes Animations to look better */
 @keyframes fadeIn {
   from {
     opacity: 0;

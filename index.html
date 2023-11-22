@@ -2,227 +2,219 @@
 <html lang="en">
 
 <head>
+  <!-- Meta tags -->
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Weather App</title>
+  <meta name="title" content="Weather App">
+  <meta name="description"
+    content="Weather App is an hourly weather forecast for 5-days and this application is made by Khaja Moinuddin Khadri">
+  <!-- CSS style sheet -->
+  <link rel=" stylesheet" href="style.css">
+  <!-- Favicon icon -->
+  <favicon>
+    <link rel="icon" href="Assets/favicon.ico">
+  </favicon>
 </head>
 
 <body>
-
-
-
   <!-- Main container which includes current container and weather container -->
-  <div class="container">
+  <div class=" container">
+    
     <!-- Search Input -->
     <input class="searchInput" type="search" name="search" id="searchInput" placeholder="Search City">
 
+    <!-- Current container which shows current conditions   -->
     <div class="currentContainer">
-      <h2 id="cityName">Bengaluru</h2>
-      <h1 id="cityTemp">30.9°C</h1>
-      <h3 id="descriptionWeather">Overcast Clouds</h3>
+      <h2 id="cityName">Loading</h2>
+      <h1 id="cityTemp">...</h1>
+      <h3 id="descriptionWeather">Loading</h3>
       <div class="currentTemp">
-        <h3 id="highTemp">H:31.71°</h3>
-        <h3 id="lowTemp">L:30.9°</h3>
+        <h3 id="highTemp">H: ...</h3>
+        <h3 id="lowTemp">L: ...</h3>
       </div>
     </div>
 
     <div class="weatherContainer">
+      <!-- Scrollale table inside a container, which shows 24-hour forecast with 3 hour step -->
       <div class="scrollableTable">
         <table class="hourlyTable">
           <caption>Hourly Forecast</caption>
           <tr>
-            <td>Now</td>
-            <td>1AM</td>
-            <td>2AM</td>
-            <td>3AM</td>
-            <td>4AM</td>
-            <td>5AM</td> 
-            <td>6AM</td>
-          </tr>
-          <tr>
-            <td>
-              <img src="/Assets/images/clouds.png" alt="Clouds">
-            </td>
-            <td>
-              <img src="/Assets/images/clouds.png" alt="Clouds">
-            </td>
-            <td>
-              <img src="/Assets/images/clouds.png" alt="Clouds">
-            </td>
-            <td>
-              <img src="/Assets/images/clouds.png" alt="Clouds">
-            </td>
-            <td>
-              <img src="/Assets/images/clouds.png" alt="Clouds">
-            </td>
-            <td>
-              <img src="/Assets/images/clouds.png" alt="Clouds">
-            </td>
-            <td>
-              <img src="/Assets/images/clouds.png" alt="Clouds">
-            </td>
-          </tr>
-          <tr>
-            <td>26°C</td>
-            <td>25°C</td>
-            <td>24.5°C</td>
-            <td>24°C</td>
-            <td>23.5°C</td>
-            <td>23°C</td>
-            <td>22°C</td>
+            <td>Loading</td>
+            <td>Loading</td>
+            <td>Loading</td>
+            <td>Loading</td>
+            <td>Loading</td>
+            <td>Loading</td>
+            <td>Loading</td>
+            <td>Loading</td>
           </tr>
         </table>
       </div>
 
+      <!-- Grid layout which shows all the usefull info in a grid format -->
       <div class="gridLayout">
-
+        <!-- Five day table which shows 5-day forecast including present day -->
         <div class="fiveDayTable gridSpan">
           <table>
             <caption>5 Day Forecast</caption>
             <tr>
-              <td>Today</td>
-              <td><img src="/Assets/images/clouds.png" alt="Clouds"></td>
-              <td>20.35°</td>
-              <td>43.12°</td>
+              <td>Loading </td>
+              <td> ------- </td>
+              <td> Loading</td>
             </tr>
             <tr>
-              <td>Friday</td>
-              <td><img src="/Assets/images/clouds.png" alt="Clouds"></td>
-              <td>22.57°</td>
-              <td>37.07°</td>
+              <td>Loading </td>
+              <td> ------- </td>
+              <td> Loading</td>
             </tr>
             <tr>
-              <td>Saturday</td>
-              <td><img src="/Assets/images/clouds.png" alt="Clouds"></td>
-              <td>25.20°</td>
-              <td>39.27°</td>
+              <td>Loading </td>
+              <td> ------- </td>
+              <td> Loading</td>
             </tr>
             <tr>
-              <td>Sunday</td>
-              <td><img src="/Assets/images/clouds.png" alt="Clouds"></td>
-              <td>24.05°</td>
-              <td>36.19°</td>
+              <td>Loading </td>
+              <td> ------- </td>
+              <td> Loading</td>
             </tr>
             <tr>
-              <td>Monday</td>
-              <td><img src="/Assets/images/clouds.png" alt="Clouds"></td>
-              <td>28.07°</td>
-              <td>42.11°</td>
+              <td>Loading </td>
+              <td> ------- </td>
+              <td> Loading</td>
             </tr>
           </table>
         </div>
 
+        <!-- Sunrise Time -->
         <div class="sunriseDetails Details">
           <div class="sunriseTitle">
             <h3>SunRise : </h3>
           </div>
           <div class="sunriseInfo">
-            <img src="Assets/sunrise.png" alt="">
-            <h2 id="sunRiseTime">6:13 AM</h2>
+            <img src="Assets/icons/sunrise.png" alt="">
+            <h2 id="sunRiseTime">Loading</h2>
           </div>
         </div>
 
+        <!-- Sunset Time -->
         <div class="sunsetDetails Details">
           <div class="sunsetTitle">
             <h3>SunSet : </h3>
           </div>
           <div class="sunsetInfo">
-            <img src="Assets/sunset.png" alt="">
-            <h2 id="sunSetTime">6:04 PM</h2>
+            <img src="Assets/icons/sunset.png" alt="">
+            <h2 id="sunSetTime">Loading</h2>
           </div>
         </div>
 
+        <!-- Wind Details -->
         <div class="windDetails Details">
           <div class="windTitle">
             <h3>Wind :</h3>
           </div>
           <div class="windInfo">
-            <img src="Assets/wind.png" alt="">
+            <img src="Assets/icons/wind.png" alt="">
+            <!-- Wind speed -->
             <div class="windDiv">
               <div class="windSpdDiv">
                 <h3>Speed :</h3>
-                <h2 id="windSpeed">2.93 m/s</h2>
+                <h2 id="windSpeed">Loading</h2>
               </div>
+              <!-- Wind directon -->
               <div class="windDirDiv">
                 <h3>Direction :</h3>
-                <h2 id="windDirection">94°</h2>
+                <h2 id="windDirection">Loading</h2>
               </div>
             </div>
           </div>
         </div>
 
+        <!-- Precipitation Details -->
         <div class="PrecipitationDetails Details">
           <div class="PrecipitationTitle">
             <h3>Precipitation :</h3>
           </div>
           <div class="PrecipitationInfo">
-            <img src="Assets/Precipitation.png" alt="">
-            <h2 id="precipitation">0 MM</h2>
+            <img src="Assets/icons/Precipitation.png" alt="">
+            <h2 id="precipitation">Loading</h2>
             <h3>in last 3h</h3>
           </div>
         </div>
 
+        <!-- Rain probability -->
         <div class="perceptionProb Details">
           <div class="rainTitle">
             <h3>Rain Probability :</h3>
           </div>
           <div class="rainInfo">
-            <img src="Assets/rain.png" alt="">
-            <h2 id="rainProb">10%</h2>
+            <img src="Assets/icons/rain.png" alt="">
+            <h2 id="rainProb">Loading</h2>
           </div>
         </div>
 
+        <!-- Humidity Details-->
         <div class="humidityDetails Details">
           <div class="humidityTitle">
             <h3>Humidity :</h3>
           </div>
           <div class="humidityInfo">
-            <img src="Assets/humidity.png" alt="">
-            <h2 id="humidity">46%</h2>
+            <img src="Assets/icons/humidity.png" alt="">
+            <h2 id="humidity">Loading</h2>
           </div>
         </div>
 
+        <!-- Feels Like Details -->
         <div class="feelsLikeDetails Details">
           <div class="feelsTitle">
             <h3>Feels Like :</h3>
           </div>
           <div class="feelsInfo">
-            <img src="Assets/feelsLike.png" alt="">
-            <h2 id="feelsLike">31.72°</h2>
+            <img src="Assets/icons/feelsLike.png" alt="">
+            <h2 id="feelsLike">Loading</h2>
           </div>
         </div>
 
+        <!-- Visibility Details -->
         <div class="visibilityDetails Details">
           <div class="visibilityTitle">
             <h3>Visibility :</h3>
           </div>
           <div class="visibilityInfo">
-            <img src="Assets/visibility.png" alt="">
-            <h2 id="visibility">10km</h2>
+            <img src="Assets/icons/visibility.png" alt="">
+            <h2 id="visibility">Loading</h2>
           </div>
         </div>
 
+        <!-- Pressure Details -->
         <div class="pressureDetails Details">
           <div class="pressureTitle">
             <h3>Presssure :</h3>
           </div>
           <div class="pressureInfo">
-            <img src="Assets/pressure.png" alt="">
-            <h2 id="pressure">1011 hPa</h2>
+            <img src="Assets/icons/pressure.png" alt="">
+            <h2 id="pressure">Loading</h2>
           </div>
         </div>
-
       </div>
-
+    </div>
     </div>
 
-  </div>
+    <!-- Footer section shows the creater details -->
+    <footer>
+      <div class="footer-section">
+        <p id="footer-1">© 2023 <a href=https://www.linkedin.com/in/khajamoinuddinkhadri/>Khaja Moinuddin Khadri.</a> All
+          Rights
+          Reserved.
+        </p>
+        <p id="footer-2">
+          Powered By <a href="https://openweathermap.org/api/">Free OpenWeather Api.
+        </p>
+      </div>
+    </footer>
 
-
-
-
-  <script src="script.js"></script>
-</body>
-
+    <script src="script.js"></script>
+    </body>
 </html>
